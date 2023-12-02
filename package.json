@@ -1,25 +1,16 @@
 {
-  "name": "draft-convert",
-  "version": "2.1.13",
+  "name": "draft-convert-greger",
+  "version": "1.0.0",
   "description": "Extensibly serialize & deserialize Draft.js ContentState",
   "main": "lib/index.js",
   "module": "esm/index.js",
-  "repository": "HubSpot/draft-convert",
+  "repository": "greger-hu/draft-convert-greger",
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib",
     "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir esm",
     "build:umd": "wp",
-    "jest": "jest",
-    "jest:watch": "jest --watch",
-    "jest:debug": "node --debug-brk --inspect ./node_modules/.bin/jest -i",
-    "test-once": "npm run jest",
-    "test": "npm run jest",
     "clean": "rimraf ./dist ./lib ./esm",
-    "build-and-test": "npm run clean && npm run build && npm run test-once",
-    "lint": "eslint src/ test/",
-    "prepare": "npm run build-and-test",
-    "prepublish": "npm run lint && npm run build-and-test",
     "prettier:write": "prettier --write ./{src,test}/*.js ./{src,test}/**/*.js"
   },
   "files": [
@@ -36,7 +27,7 @@
   "author": "bbriggs@hubspot.com",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "draft-js": ">=0.7.0",
+    "draft-js-greger": ">=1.0.4",
     "react": "^15.0.2 || ^16.0.0-rc || ^16.0.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^15.0.2 || ^16.0.0-rc || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
@@ -55,7 +46,7 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "cross-env": "^3.1.4",
-    "draft-js": "^0.8.1",
+    "draft-js-greger": "^1.0.4",
     "eslint": "6.0.1",
     "eslint-config-hubspot": "^7.0.0",
     "eslint-config-prettier": "^2.2.0",
@@ -68,8 +59,5 @@
     "rimraf": "2.5.4",
     "webpack": "^4.35.3",
     "webpack-nano": "^0.6.2"
-  },
-  "jest": {
-    "testRegex": "/test/spec/.*\\.js$"
   }
 }

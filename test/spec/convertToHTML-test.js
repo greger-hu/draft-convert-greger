@@ -1,6 +1,6 @@
 import convertToHTML from '../../src/convertToHTML';
 import React from 'react';
-import { convertFromRaw } from 'draft-js';
+import { convertFromRaw } from 'draft-js-greger';
 import uniqueId from '../util/uniqueId';
 
 /* eslint-disable react/no-multi-comp */

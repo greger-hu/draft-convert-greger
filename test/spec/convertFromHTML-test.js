@@ -1,5 +1,5 @@
 import React from 'react';
-import { Entity, convertToRaw } from 'draft-js';
+import { Entity, convertToRaw } from 'draft-js-greger';
 import convertFromHTML from '../../src/convertFromHTML';
 import convertToHTML from '../../src/convertToHTML';
 

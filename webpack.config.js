@@ -11,7 +11,7 @@ const baseConfig = {
     ],
   },
   externals: {
-    'draft-js': 'Draft',
+    'draft-js-greger': 'Draft',
     immutable: 'Immutable',
     react: 'React',
     'react-dom': 'ReactDOM',
