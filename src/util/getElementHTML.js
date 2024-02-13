@@ -10,7 +10,7 @@ function hasChildren(element) {
   );
 }
 
-export default function getElementHTML(element, text = null) {
+export default function getElementHTML(element, text = null, dontRenderReactChild) {
   if (element === undefined || element === null) {
     return element;
   }
@@ -20,7 +20,7 @@ export default function getElementHTML(element, text = null) {
   }
 
   if (React.isValidElement(element)) {
-    if (hasChildren(element)) {
+    if (hasChildren(element) || dontRenderReactChild) {
       return ReactDOMServer.renderToStaticMarkup(element);
     }
 

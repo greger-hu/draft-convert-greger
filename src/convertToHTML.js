@@ -23,6 +23,7 @@ const convertToHTML = ({
   styleToHTML = {},
   blockToHTML = {},
   entityToHTML = defaultEntityToHTML,
+  blockToHTML2,
 }) => contentState => {
   invariant(
     contentState !== null && contentState !== undefined,
@@ -32,6 +33,11 @@ const convertToHTML = ({
   let getBlockHTML;
   if (blockToHTML.__isMiddleware === true) {
     getBlockHTML = blockToHTML(blockTypeObjectFunction(defaultBlockHTML));
+  } else if (blockToHTML2) {
+    getBlockHTML = accumulateFunction(
+      blockToHTML2,
+      blockTypeObjectFunction(blockToHTML)
+    );
   } else {
     getBlockHTML = accumulateFunction(
       blockTypeObjectFunction(blockToHTML),

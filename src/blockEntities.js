@@ -32,8 +32,8 @@ export default (block, entityMap, entityConverter = converter) => {
         .slice(entityRange.offset, entityRange.offset + entityRange.length)
         .join('');
 
-      const entityHTML = getEntityHTML(entity, originalText);
-      const elementHTML = getElementHTML(entityHTML, originalText);
+      const entityHTML = getEntityHTML(entity, originalText, block);
+      const elementHTML = getElementHTML(entityHTML, originalText, true);
       let converted;
       if (!!elementHTML || elementHTML === '') {
         converted = [...elementHTML];

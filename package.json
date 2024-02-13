@@ -1,6 +1,6 @@
 {
   "name": "draft-convert-greger",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Extensibly serialize & deserialize Draft.js ContentState",
   "main": "lib/index.js",
   "module": "esm/index.js",
