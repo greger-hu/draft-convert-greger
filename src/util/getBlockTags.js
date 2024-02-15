@@ -10,7 +10,7 @@ function hasChildren(element) {
   );
 }
 
-export default function getBlockTags(blockHTML) {
+export default function getBlockTags(blockHTML, noChild) {
   invariant(
     blockHTML !== null && blockHTML !== undefined,
     'Expected block HTML value to be non-null'
@@ -21,7 +21,7 @@ export default function getBlockTags(blockHTML) {
   }
 
   if (React.isValidElement(blockHTML)) {
-    if (hasChildren(blockHTML)) {
+    if (hasChildren(blockHTML) || noChild) {
       return ReactDOMServer.renderToStaticMarkup(blockHTML);
     }
 

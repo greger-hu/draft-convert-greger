@@ -109,28 +109,33 @@ const convertToHTML = ({
         styleToHTML
       );
 
-      const blockHTML = getBlockTags(getBlockHTML(block));
-
       let html;
-
-      if (typeof blockHTML === 'string') {
-        html = blockHTML;
-      } else {
-        html = blockHTML.start + innerHTML + blockHTML.end;
-      }
-
-      if (
-        innerHTML.length === 0 &&
-        Object.prototype.hasOwnProperty.call(blockHTML, 'empty')
-      ) {
-        if (React.isValidElement(blockHTML.empty)) {
-          html = ReactDOMServer.renderToStaticMarkup(blockHTML.empty);
+      if (innerHTML) {
+        const blockHTML = getBlockTags(getBlockHTML(block));
+  
+        if (typeof blockHTML === 'string') {
+          html = blockHTML;
         } else {
-          html = blockHTML.empty;
+          html = blockHTML.start + innerHTML + blockHTML.end;
         }
+  
+        if (
+          innerHTML.length === 0 &&
+          Object.prototype.hasOwnProperty.call(blockHTML, 'empty')
+        ) {
+          if (React.isValidElement(blockHTML.empty)) {
+            html = ReactDOMServer.renderToStaticMarkup(blockHTML.empty);
+          } else {
+            html = blockHTML.empty;
+          }
+        }
+      }
+      else {
+        html = getBlockTags(getBlockHTML(block), true);
       }
 
       return closeNestTags + openNestTags + html;
+      
     })
     .join('');
 
